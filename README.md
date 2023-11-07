@@ -11,16 +11,14 @@
 layar pengguna. Untuk me-_load__ widget yang bersifat **Stateful** membutuhkan data untuk menentukan _widget_ yang
 seperti apa ingin ditampilkan. _Widget stateful_ juga dapat dirubah tergantung bagaimana data/kondisi yang ditampilkan.
 Sedangkan _widget **stateless**_ adalah widget yang ditampilkan tanpa bergantung dengan bagaimana data/kondisi saat ini.
-Sehingga konsekuensinya _widget stateless_ tidak dapat diubah secara langsung. 
-<br>
-* **Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing!**
+Sehingga konsekuensinya _widget stateless_ tidak dapat diubah secara langsung.
+* **Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing!** <br>
    - _Icons_ adalah sebuah _widget_ yang berfungsi untuk menampilkan icon, seperti _shopping_cart, shopping bag_, dll.
    - _Text_ adalah sebuah _widget_ yang berfungsi untuk menampilkan teks atau label.
    - _Color_ adalah sebuah _widget_ yang berfungsi untuk memberi warna.
    - _Card_ adalah sebuah _widget_ yang fungsinya untuk membungkus/_wrapping_ elemen-elemen tertentu.
    - _Padding_ berfungsi untuk memberikan jarak/_gap_ antara elemen dan kontainernya
-<br>
-* **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)**
+* **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)** <br>
    - Membuat sebuah program Flutter baru dengan tema inventory seperti tugas-tugas sebelumnya. <br>
       Untuk membuat program Flutter baru, dapat dilakukan dengan ```flutter create my_store```. Dari perintah tersebut maka secara otomatis
       membuat _project_ Flutter baru dengan nama my_store.
