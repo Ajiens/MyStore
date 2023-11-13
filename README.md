@@ -1,7 +1,54 @@
 <h1>Tugas Individu Flutter</h1>
 
+<hr>
+Nama    : Alwan Takahashi Aditama <br>
+NPM     : 2206828853 <br>
+Kelas   : PBP E <br>
+
 ### Hyperlink:
-- [Tugas7](https://github.com/Ajiens/MyStore#Tugas7)
+- [Tugas 7](https://github.com/Ajiens/MyStore#Tugas7)
+- [Tugas 8](https://github.com/Ajiens/MyStore#Tugas8)
+
+<hr>
+
+### Tugas8
+1. **Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!** <br>
+    - **Navigator.push()**, adalah method yang menambahkan route kedalam stack yang dikelola oleh Navigator.
+        Jadi ketika kita ingin menampilkan suatu halaman tertentu, kita dapat menggunakan method ini dengan cara
+        menumpuk/menimpa halaman baru diatas halaman sebelumnya. Sehingga ketika kita menekan tombol back pada device kita
+        halaman yang sebelumnya ditimpa dengan halaman baru akan muncul. Contoh pengaplikasian yang tepat ketika menggunakan
+        method ini adalah ketika user perlu melakukan serangkaian proses yang diwajibkan secara berurut namun memerlukan halaman 
+        halaman yang berbeda. Jadi user dapat kembali kehalaman sebelumnya tanpa harus takut kehilangan proses yang dilaluinya 
+        ketika melanjutkan ke halaman selanjutnya.
+    - **Navigator.pushReplacement** adalah method yang menggantikan route saat ini ketika ingin mengakses route baru yang ingin dituju.
+        Jadi ketika ingin beralih dari halaman A ke halaman B, halaman A akan dihapus dan digantikan oleh halaman B. Contoh pengaplikasian
+        yang tepat ketika menggunakan method ini adalah ketika user menekan tombol navigasi ke halaman utama yang sebelumnya berada di halaman lain.
+        Jadi ketika user menekan tombol _back_ pada halaman utama padahal sebelumnya mengakses halaman lain, pengguna akan langsung keluar dari 
+        aplikasi tanpa harus melewati halaman lain yang sebelumnya pernah diakses.
+   
+2. **Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!**
+    - **Container** adalah widget serbaguna yang dapat menampung widget-widget lain didalam _layout_ ini.
+    - **Row dan Column** adalah widget layout yang berfungsi untuk meletakan widget lain secara horizontal (row) atau vertikal (column).
+    - **Expanded and Flexible** adalah widget layout yang digunakan untuk mengkombinasikan antara row dan column
+    - **GridView** adalah widget layout yang berfungsi untuk menempatkan widget dengan susunan layaknya pada tabel/grid.
+
+3. **Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!**
+    Saat ini saya menggunakan widget TextFormField untuk menampung input dari user. Input-input user yang saya minta antara lain: nama untuk nama suatu produk,
+    _price_ untuk harga dari suatu produk, dan _description_ untuk deskripsi dari produk tersebut. Mungkin saja kedepannya saya akan memakai widget lain
+    untuk melengkapi formulir yang saya butuhkan dari user. Widget lain yang mungkin akan ditambahkan ada widget ```DropdownButton```, ```Checkbox```, atau ```Radio```.
+4. **Bagaimana penerapan clean architecture pada aplikasi Flutter?**
+    Clean Architecture pada flutter ditunjunkan untuk memisahkan kode-kode berdasarkan tiap lapisan/halaman yang mempunyai fungsi yang berbeda.
+    Flutter mempunyai lapisan utama didalamnya, sehingga kita dapat membagi lapisan tersebut berdasarkan fungsinya masing-masing:
+    - **Feature Layer**, lapisan yang berisikan tentang tampilan UI beserta _event handler_nya. Sehingga pada lapisan ini hanya berisikan _interface_ yang ingin 
+        ditampilkan kepada user dan tidak boleh berisikan proses logika.
+    - **Domain Layer**, lapisan yang berisikan inti dari proses aplikasi tersebut, dimana terdapat logika, objek, dan kontrak repositori tanpa
+        tanpa ada campuran _user interface_.
+    - **Data Layer**, lapisan yang berisikan implementasi repositori, pemanggilan API jika diperlukan, dan proses pengaksesan data pada database. 
+   model di feature dan data layer menunjukkan representasi yang spesifik untuk keperluan antarmuka pengguna atau manipulasi data.
+
+5. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)**
+
+
 
 <hr>
 
@@ -33,4 +80,3 @@ Sehingga konsekuensinya _widget stateless_ tidak dapat diubah secara langsung.
       Untuk dapat memunculkan teks ketika tombol dipencet, kita dapat menggunakan ```onTap()``` yang akan berperan sebagai _action listener_ ketika tombol dipencet.
       Agar _snackbar_ dapat muncul ketika tombol dipencet, kita dapat mendefinisikan snackbar didalam onTap(), yaitu dapat digunakan dengan cara:
       ```SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))```.
-   
