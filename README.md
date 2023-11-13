@@ -46,7 +46,41 @@ Kelas   : PBP E <br>
     - **Data Layer**, lapisan yang berisikan implementasi repositori, pemanggilan API jika diperlukan, dan proses pengaksesan data pada database. 
    model di feature dan data layer menunjukkan representasi yang spesifik untuk keperluan antarmuka pengguna atau manipulasi data.
 
-5. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)**
+5. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)**/
+<dl>
+    <dt><b>Membuat satu halaman formulir yang berfungsi untuk menambahkan item baru dengan beberapa ketentuan</b>
+    </dt>
+        <dd>
+            <p>Pertama yang dilakukan adalah membuat file baru sebagai bentuk halaman baru pada aplikasi. Pada file tersebut dibuat constractor untuk membuat halaman form dengan melakukan override widget build. Didalam widget build tersebut dibuat ```Scaffold()``` sebagai wadah dari halaman tersebut. Scaffold ini dapat berisikan title, body, action-listener, drawer dll. </p>
+            <p>Pada bagian body diisikan variabel sebagai tempat menampung input form. Pada bagian ini juga berisikan child yang menampung widget lain yang diatur dengan menggunakan layout ```Column()```. Dalam layout tersebut juga diisikan TextFormField sebagai widget yang berfungsi tempat input user. Masing-masing widget TextFormField akan divalidasi input nya, seperti isian tidak boleh kosong atau harus berupa integer. Berikut salah satu contoh untuk memvalidasi input dari user:</p>
+            <span>
+            ```
+            validator: (String? value) {
+            if (value == null || value.isEmpty) {
+                return "Harga tidak boleh kosong!";
+            }
+            if (int.tryParse(value) == null) {
+                return "Harga harus berupa angka!";
+            }
+            }
+            ```
+            </span>
+            <p>Setelah itu, membuat button yang berfungsi untuk menyimpan input dari user. Pada button ini akan memvalidasi _formkey yang sebelumnya didefinisikan. </p>
+        </dd>
+    <dt><b>Mengarahkan pengguna ke halaman form tambah item baru ketika menekan tombol Tambah Item pada halaman utama.</b></dt>
+    <dd>
+        <p>Untuk mengarahkan pengguna ke halama form ketika menekan tombol Tambah Item saya menggunakan Navigator.push, pengimplmentasiannya: ```Navigator.push(context, MaterialPageRoute(builder: (context) => const ShopFormPage()));```. Dengan menggunakan navigator ini, halaman yang ingin user akses akan tampil dan ketika tombol back di eksekusi pada device pengguna, pengguna akan kembali ke halaman tempat dimana ia memencet tombol Tambah Item.</p>
+    </dd>
+    <dt><b>Memunculkan data sesuai isi dari formulir yang diisi dalam sebuah pop-up setelah menekan tombol Save pada halaman formulir tambah item baru. </b></dt>
+    <dd> 
+        <p>Untuk menambahkan pop-up card ketika tombol save dan input field tervalidasi, kita dapat menambahkan ```showDialog()``` pada bagian ```onPressed()```, sehingga ketika button tersebut dipencet dan input form tervalidasi, maka pop-up card dapat muncul dan memunculkan data-data dari input form yang dimasukan dengan cara memanggil variabel penampung yang didefinisikan sebelumnya.</p>
+    </dd>
+    <dt><b>Membuat sebuah drawer pada aplikasi dengan ketentuan</b></dt>
+    <dd><p>Untuk membuat sebuah drawe pada aplikasi kita, kita dapat membuat berkas file baru dan membuat class yang bernama LeftDrawer yang mengextends StatelessWidget. StatelessWidget digunakan karena ketika load halaman ini, kita tidak memerlukan data dan widget bersifat statis.</p>
+    <p>Setelah itu, widget build di lakukan override untuk membentuk widget yang kita inginkan. Kita menggunakan Layout ListView untuk menyusun tiap-tiap widget didalamnya. Setelah itu kita dapat menambahkan widget yang dibutukan. Lalu tiap widget-widget tersebut ditambahkan actionlistener yang melakukan routing ke halaman lain yang bersesuaian</p>
+    </dd>
+
+</dl>
 
 
 
