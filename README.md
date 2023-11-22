@@ -24,7 +24,7 @@ Kelas   : PBP E <br>
    lapisan widget atau parameter fungsi. Selain itu dengan membagikannya dapat tercapainya pengelolaan status global yang efisien dan memberikan akses konsisten ke informasi atau objek tertentu di 
    seluruh aplikasi yang dibuat. </p>
 3. **Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.** <br>
-    <p>Untuk mengambil data JSON dari suatu website kita perlu menambahkan kode untuk mengizinkan Flutter dapat mengakses internet. Kita dapat melakukan penambahan kode ```uses-permission android:name="android.permission.INTERNET"```
+    <p>Untuk mengambil data JSON dari suatu website kita perlu menambahkan kode untuk mengizinkan Flutter dapat mengakses internet. Kita dapat melakukan penambahan kode <code>uses-permission android:name="android.permission.INTERNET</code>
    Setelah itu JSON yang diambil diubah menjadi objek Dart agar dapat diolah dalam aplikasi Flutter. Setelah itu objek dart tersebut dapat ditampilkan dalam widget Flutter yang kita inginkan.</p>
 4. **Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.** <br>
     <p>Pertama pengguna yang memasukan input dari interface aplikasi Flutter akan mengirimkan request HTTP ke endpoint pada Django. Permintaan ini kemudian akan dicocokan dengan logika yang diterapkan pada Django.
@@ -43,8 +43,37 @@ Kelas   : PBP E <br>
     - _SizedBox_ berfungsi untuk membuat card/box yang isi nya berupa text
     - _Snackbar_ berfungsi untuk melakukan pop-up text
 6. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**<br>
+<dt><b>Membuat halaman login pada proyek tugas Flutter.</b></dt>
+    <dd> <p>Untuk membuat halama login, pertama yang dapat dilakukan adalah membuat file baru <code>login.dart</code> yang berisikan halaman login. Pada file ini berisikan
+autentikasi dengan backend Django menggunakan paket pbp_django_auth dan provider. Saat pengguna memasukkan nama pengguna dan kata sandi pada halaman login, aplikasi membuat 
+permintaan HTTP ke endpoint Django untuk autentikasi. Pada file ini juga memerlukan logika bagaimana saat autentikasi berhasil atau tidak. Jika autentikasi berhasil, penggunadiarahkan ke halaman menu (MyHomePage), dan pesan selamat datang ditampilkan. 
+Jika autentikasi gagal, muncul pesan kesalahan dalam bentuk dialog.</p>
+    </dd>
 
+<dt><b>Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.</b></dt>
+    <dd> <p>Untuk Dapat membuat halaman login yang menggunakan bantuan Django kita dapat membuat app baru yang khusus menghandle proses autentikasi pada Flutter.
+Kita dapat menggunakan perintah <code>python manage.py startapp authenticate</code>, perintah tersebut akan membuat app baru yang bernama 'authenthicate'.
+Dalam aplikasi tersebut kita dapat menghandle logika login. Dalam menghandle logika tersebut, kita dapat mengirmkan kembali response berupa status 200 (ketika berhasil)
+dan status 401 (ketika gagal login). Pada Flutter kita dapat memanggil fungsi login dan menyimpan hasil response dari Django dengan memanggil urls yang mengarahkan 
+ke halaman login pada Django. Lalu setelah Flutter menerima rseponse Django, flutter dapat mengolahnya dengan proses logika. Ketika berhasil login flutter dapat langsung
+mengarahkan ke home screen. Ketika tidak berhasil login, flutter dapat mengirimkan alert yang berisikan text 'Login Gagal'.</p>
+    </dd>
 
+<dt><b>Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy dan menampilkan field JSON.</b></dt>
+    <dd> <p>Untuk dapat melakukan ini, kita perlu mengambil data berupa dengan format JSON agar data yang ada dapat ditampilkan. Pertama yang dapat kita lakukan adalah
+dengan mengambil data berupa JSON dengan mengakses url Django yang berisikan data JSON. Untuk memudahkan prosesnya, kita perlu mengubah data JSON tersebut menjadi objek-objek
+dart. Kita dapat menggunakan bantuan website QuickType untuk mengubah data JSON kita menjadi objek yang dapat dibaca oleh Dart. Karena kita mengambil data dari sebuah website,
+kita perlu mengizinkan Flutter untuk mengakses internet, dapat dilakukan dengan menambahkan <code>uses-permission android:name="android.permission.INTERNET</code> pada file
+<code>android/app/src/main/AndroidManifest.xml</code>. Setelah itu kita dapat melakukan fetch data dari Django dengan mengakses data json. Setelah itu kita dapat menggunakan 
+data JSON yang sudah di convert ke objek dart kedalam interface yang ingin kita tampilkan.</p> 
+    </dd>
+
+<dt><b>Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item</b></dt>
+    <dd><p> Ketika ingin beralih kehalaman lain yang dapat menampilkan data, kita dapat membuat sebuah tombol yang dapat mengarahkan user untuk berpindah ke halaman yang berisikan
+produk-produk. Untuk dapat melakukannya, kita dapat menambahkan actionlistener berupa Navigator push untuk mengarahkan pengguna ke halaman yang kita inignkan. Navigator Push ini akan 
+mengembalikan ke halaman tempat dimana tombol itu berada ketika pengguna menekan tombol back pada ponsel mereka.
+Selanjutnya untuk dapat menampilkan setiap item, kita dapat melakukan fetch data dari Django dengan mengakses data json. Setelah itu kita dapat menggunakan 
+data JSON yang sudah di convert ke objek dart kedalam interface yang ingin kita tampilkan.</p></dd>
 <hr>
 
 
