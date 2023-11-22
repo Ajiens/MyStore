@@ -8,8 +8,45 @@ Kelas   : PBP E <br>
 ### Hyperlink:
 - [Tugas 7](https://github.com/Ajiens/MyStore#Tugas7)
 - [Tugas 8](https://github.com/Ajiens/MyStore#Tugas8)
+- [Tugas 9](https://github.com/Ajiens/MyStore#Tugas9)
 
 <hr>
+
+### Tugas9
+1. **Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?** <br>
+    Ya, tetap akan bisa. Namun jika kita mendefinisikan model terlebih dahulu dibandingkan kita mengetahui struktur data JSON terlebih dahulu akan membuat kode yang kita bentuk rawan terjadinya error
+    Error yang dapat terjadi dapat berupa kelalaian pendefinisian model, jenis data field yang ditampung, atau ada data field yang didefinisikan tetapi ternyata tidak dibutuhkan. Sehingga lebih baik 
+    mengetahui struktur data JSON terlebih dahulu sebelum membuat dan mendefinisikan model pada flutter.
+2. **Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.** <br>
+    <p>Fungsi CookieRequest adalah fungsi yang mengatur menyimpan cookie pengguna yang dapat berisikan apakah pengguna sudah login atau belum. Cookie ini digunakan agar ketika pengguna mengakses ke
+   halaman lain yang membutuhkan login, pengguna tidak perlu meelakukan login lagi dan langsung bisa mengakses halaman tersebut tanpa perlu login ulang.</p>
+    <p>Dengan membagikan instance CookieRequest ke semua komponen pada aplikasi, aplikasi dapat dengan mudah mengakses dan memanfaatkan informasi tersebut tanpa perlu mengirimkannya melalui banyak 
+   lapisan widget atau parameter fungsi. Selain itu dengan membagikannya dapat tercapainya pengelolaan status global yang efisien dan memberikan akses konsisten ke informasi atau objek tertentu di 
+   seluruh aplikasi yang dibuat. </p>
+3. **Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.** <br>
+    <p>Untuk mengambil data JSON dari suatu website kita perlu menambahkan kode untuk mengizinkan Flutter dapat mengakses internet. Kita dapat melakukan penambahan kode ```uses-permission android:name="android.permission.INTERNET"```
+   Setelah itu JSON yang diambil diubah menjadi objek Dart agar dapat diolah dalam aplikasi Flutter. Setelah itu objek dart tersebut dapat ditampilkan dalam widget Flutter yang kita inginkan.</p>
+4. **Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.** <br>
+    <p>Pertama pengguna yang memasukan input dari interface aplikasi Flutter akan mengirimkan request HTTP ke endpoint pada Django. Permintaan ini kemudian akan dicocokan dengan logika yang diterapkan pada Django.
+   Kemudian dari proses logika pada Django, Django dapat mengirimkan kembali ke Flutter berupa response yang berhasil atau response yang gagal. Kemudian dari response tersebut Flutter akan mengolahnya lagi,
+   apa yang dilakukan Flutter ketika mendapat response berhasil atau ketika response gagal yang kemudian akan ditampilkan kepada user.</p>
+5. **Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.**<br>
+    - _Icons_ adalah sebuah _widget_ yang berfungsi untuk menampilkan icon, seperti _shopping_cart, shopping bag_, dll.
+    - _Text_ adalah sebuah _widget_ yang berfungsi untuk menampilkan teks atau label.
+    - _Color_ adalah sebuah _widget_ yang berfungsi untuk memberi warna.
+    - _Card_ adalah sebuah _widget_ yang fungsinya untuk membungkus/_wrapping_ elemen-elemen tertentu.
+    - _Padding_ berfungsi untuk memberikan jarak/_gap_ antara elemen dan kontainernya
+    - _Theme_ berfungsi untuk mengatur tema yang dipakai
+    - _Drawer_ berguna sebagai navigasi menu untuk mengakses halaman-halaman lain pada Flutter
+    - _Button_ berfungsi untuk tombol yang dapat dipencet dan menjalankan suatu perintah
+    - _Navigator_ berfungsi untuk berpindah dari halaman satu ke halaman yang lain
+    - _SizedBox_ berfungsi untuk membuat card/box yang isi nya berupa text
+    - _Snackbar_ berfungsi untuk melakukan pop-up text
+6. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**<br>
+
+
+<hr>
+
 
 ### Tugas8
 1. **Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!** <br>
@@ -53,17 +90,15 @@ Kelas   : PBP E <br>
         <dd>
             <p>Pertama yang dilakukan adalah membuat file baru sebagai bentuk halaman baru pada aplikasi. Pada file tersebut dibuat constractor untuk membuat halaman form dengan melakukan override widget build. Didalam widget build tersebut dibuat ```Scaffold()``` sebagai wadah dari halaman tersebut. Scaffold ini dapat berisikan title, body, action-listener, drawer dll. </p>
             <p>Pada bagian body diisikan variabel sebagai tempat menampung input form. Pada bagian ini juga berisikan child yang menampung widget lain yang diatur dengan menggunakan layout ```Column()```. Dalam layout tersebut juga diisikan TextFormField sebagai widget yang berfungsi tempat input user. Masing-masing widget TextFormField akan divalidasi input nya, seperti isian tidak boleh kosong atau harus berupa integer. Berikut salah satu contoh untuk memvalidasi input dari user:</p>
-            <span>
-            ```
-            validator: (String? value) {
+            <span>```
+validator: (String? value) {
             if (value == null || value.isEmpty) {
                 return "Harga tidak boleh kosong!";
             }
             if (int.tryParse(value) == null) {
                 return "Harga harus berupa angka!";
             }
-            }
-            ```
+            }```
             </span>
             <p>Setelah itu, membuat button yang berfungsi untuk menyimpan input dari user. Pada button ini akan memvalidasi _formkey yang sebelumnya didefinisikan. </p>
         </dd>
